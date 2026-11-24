@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Daily News Feed</h1>
+        <p>Get the latest news updates</p>
+    </header>
+
+    <div class="search">
+        <input type="text" id="searchInput"
+            placeholder="Search news...">
+        <button onclick="searchNews()">Search</button>
+    </div>
+
+    <nav>
+        <button onclick="getNews('general')">All</button>
+        <button onclick="getNews('technology')">Technology</button>
+        <button onclick="getNews('business')">Business</button>
+        <button onclick="getNews('sports')">Sports</button>
+        <button onclick="getNews('health')">Health</button>
+    </nav>
+
+    <h2>Latest News</h2>
+
+    <div id="newsContainer" class="news-container">
+        Loading news...
+    </div>
+
+    <footer>
+        <p>© 2026 Daily News Feed</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

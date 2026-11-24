@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Catalogue</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .product {
+            background: white;
+            padding: 15px;
+            margin: 10px auto;
+            width: 250px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Product Catalogue</h1>
+
+    <!-- Search Bar -->
+    <input type="text" id="search"
+           placeholder="Search products...">
+
+    <!-- Category Filter -->
+    <select id="category">
+        <option value="All">All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Books">Books</option>
+    </select>
+
+    <!-- Product List -->
+    <div id="products"></div>
+
+    <script>
+
+        // Product Details
+        let products = [
+            {name: "Laptop", price: 50000, category: "Electronics"},
+            {name: "Mobile", price: 20000, category: "Electronics"},
+            {name: "Shirt", price: 800, category: "Clothing"},
+            {name: "Jeans", price: 1500, category: "Clothing"},
+            {name: "JavaScript Book", price: 500, category: "Books"}
+        ];
+
+        // Display Products
+        function displayProducts() {
+            let search = document.getElementById("search").value.toLowerCase();
+            let category = document.getElementById("category").value;
+
+            let result = products.filter(function(product) {
+                return product.name.toLowerCase().includes(search) &&
+                (category == "All" || product.category == category);
+            });
+
+            let output = "";
+
+            result.forEach(function(product) {
+                output += `
+                    <div class="product">
+                        <h3>${product.name}</h3>
+                        <p>Price: ₹${product.price}</p>
+                        <p>Category: ${product.category}</p>
+                    </div>
+                `;
+            });
+
+            document.getElementById("products").innerHTML =
+                output || "No products found";
+        }
+
+        // Search and Filter Events
+        document.getElementById("search").addEventListener("input", displayProducts);
+
+        document.getElementById("category").addEventListener("change", displayProducts);
+
+        // Initial Display
+        displayProducts();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coco Bee | Weighted Plush Toys</title>
+
+  <style>
+    /* ===== BASIC STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --yellow: #ffd34e;
+      --light-yellow: #fff0a8;
+      --cream: #fffbee;
+      --brown: #50351f;
+      --pink: #f5b6b6;
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Trebuchet MS', Arial, sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ===== NAVIGATION ===== */
+    header {
+      background: var(--cream);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px #50351f0b;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #d99d00;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: normal;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: #bd8500;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 30px;
+      background: var(--yellow);
+      color: var(--brown);
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #f2bd24;
+      transform: translateY(-3px);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: linear-gradient(120deg, #fff0a8, #ffdc68);
+      padding: 65px 0;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #fffbee;
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4.7rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #b77c00;
+    }
+
+    .hero p {
+      max-width: 470px;
+      margin-bottom: 25px;
+      font-size: 1.05rem;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .toy-display {
+      width: min(380px, 100%);
+      aspect-ratio: 1;
+      background: #fff9dc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(8rem, 17vw, 13rem);
+      box-shadow: 0 20px 50px #8a651522;
+      transform: rotate(4deg);
+    }
+
+    /* ===== FEATURES ===== */
+    .features {
+      padding: 45px 0;
+      background: #fffdf5;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 12px;
+      background: #fff0bd;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #796a53;
+    }
+
+    /* ===== SECTION HEADINGS ===== */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.2;
+    }
+
+    .section-heading p {
+      color: #796a53;
+      margin-top: 10px;
+    }
+
+    /* ===== PRODUCTS ===== */
+    .products {
+      padding: 70px 0;
+      background: linear-gradient(#fff3bc, #fff9e7);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px #755a1610;
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 28px #755a1620;
+    }
+
+    .product-image {
+      min-height: 190px;
+      display: grid;
+      place-items: center;
+      font-size: 6rem;
+    }
+
+    .bear {
+      background: #ead2ad;
+    }
+
+    .bunny {
+      background: #f9d9d9;
+    }
+
+    .penguin {
+      background: #dcebf4;
+    }
+
+    .dino {
+      background: #dce9c8;
+    }
+
+    .product-info {
+      padding: 18px;
+    }
+
+    .product-info h3 {
+      font-size: 1.05rem;
+    }
+
+    .product-info p {
+      font-size: 0.88rem;
+      color: #796a53;
+      margin: 5px 0 10px;
+    }
+
+    .weight {
+      display: inline-block;
+      padding: 4px 9px;
+      background: #fff0bd;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .product-info .btn {
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+
+    /* ===== CALL TO ACTION ===== */
+    .cta {
+      width: 90%;
+      max-width: 1200px;
+      margin: 55px auto;
+      padding: 50px 25px;
+      text-align: center;
+      border-radius: 25px;
+      background: linear-gradient(120deg, #ffe58b, #ffd34e);
+    }
+
+    .cta h2 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      margin-bottom: 24px;
+    }
+
+    .cta .btn {
+      background: white;
+    }
+
+    /* ===== SIGN UP ===== */
+    .signup {
+      width: 90%;
+      max-width: 600px;
+      margin: 55px auto;
+      padding: 35px 25px;
+      text-align: center;
+      border-radius: 25px;
+      background: #fffdf5;
+      box-shadow: 0 8px 25px #755a1610;
+    }
+
+    .signup h2 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      margin-bottom: 12px;
+    }
+
+    .signup p {
+      margin-bottom: 20px;
+      color: #796a53;
+    }
+
+    .signup form {
+      display: grid;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .signup label {
+      font-weight: bold;
+    }
+
+    .signup input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d9c9a8;
+      border-radius: 10px;
+      font: inherit;
+      color: var(--brown);
+      background: white;
+    }
+
+    .signup form .btn {
+      margin-top: 8px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #fffdf5;
+      padding: 28px 0;
+      text-align: center;
+      color: #796a53;
+      font-size: 0.9rem;
+    }
+
+    footer .logo {
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    /* ===== TABLET ===== */
+    @media (max-width: 900px) {
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-content {
+        gap: 25px;
+      }
+
+      .toy-display {
+        width: 300px;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+      }
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      .container {
+        width: 92%;
+      }
+
+      header {
+        padding: 12px 0;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+      }
+
+      .logo small {
+        font-size: 0.58rem;
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      .nav-button {
+        padding: 9px 14px;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding: 45px 0;
+        text-align: center;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero h1 {
+        font-size: 2.7rem;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .toy-display {
+        width: min(260px, 80vw);
+        font-size: 8rem;
+      }
+
+      .features {
+        padding: 35px 0;
+      }
+
+      .feature-grid {
+        gap: 25px 12px;
+      }
+
+      .feature-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 1.7rem;
+      }
+
+      .feature-card h3 {
+        font-size: 0.9rem;
+      }
+
+      .feature-card p {
+        font-size: 0.82rem;
+      }
+
+      .products {
+        padding: 50px 0;
+      }
+
+      .product-grid {
+        gap: 13px;
+      }
+
+      .product-image {
+        min-height: 125px;
+        font-size: 4rem;
+      }
+
+      .product-info {
+        padding: 12px;
+      }
+
+      .product-info h3 {
+        font-size: 0.95rem;
+      }
+
+      .product-info p {
+        font-size: 0.8rem;
+      }
+
+      .product-info .btn {
+        font-size: 0.8rem;
+        padding: 9px 5px;
+      }
+
+      .weight {
+        font-size: 0.7rem;
+      }
+
+      .price {
+        font-size: 1rem;
+      }
+
+      .cta {
+        margin: 35px auto;
+        padding: 35px 18px;
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="logo">
+        🐝 coco bee
+        <small>Weighted Plush Toys</small>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#products">Shop</a>
+        <a href="#features">Benefits</a>
+        <a href="#signup" class="btn nav-button">Sign Up</a>
+        <a href="#contact" class="btn nav-button">Shop Now ♡</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO / INTRODUCTION -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+
+        <div>
+          <span class="eyebrow">🐝 Your little cuddle buddy</span>
+
+          <h1>
+            Soft hugs.<br>
+            Calmer <span>mind.</span><br>
+            Better sleep.
+          </h1>
+
+          <p>
+            Meet Coco Bee! Adorably squishy weighted plush toys
+            made for cozy cuddles, relaxing moments, and
+            sweeter bedtime routines.
+          </p>
+
+          <a href="#products" class="btn">
+            Find Your Buddy →
+          </a>
+        </div>
+
+        <div class="hero-image">
+          <div class="toy-display" role="img"
+               aria-label="Cute Coco Bee plush toy">
+            🧸
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="feature-grid">
+
+          <article class="feature-card">
+            <div class="feature-icon">🍃</div>
+            <h3>Weighted Comfort</h3>
+            <p>Gentle weight for cozy cuddle moments.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🌙</div>
+            <h3>Bedtime Buddy</h3>
+            <p>A soft companion for your wind-down routine.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">☁️</div>
+            <h3>Super Soft</h3>
+            <p>Plush textures made for comforting hugs.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🎁</div>
+            <h3>Made for Gifting</h3>
+            <p>A thoughtful surprise for someone special.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT COLLECTION -->
+    <section class="products" id="products">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">Meet your new bestie 💛</span>
+          <h2>Our Weighted Plushies</h2>
+          <p>Little friends, big cozy energy.</p>
+        </div>
+
+        <div class="product-grid">
+
+          <article class="product-card">
+            <div class="product-image bear">🧸</div>
+            <div class="product-info">
+              <h3>Sleepy Bear</h3>
+              <p>A warm, cuddly friend for quiet moments.</p>
+              <span class="weight">2.5 lb / 1.1 kg</span>
+              <span class="price">₹999</span>
+              <a href="#contact" class="btn">Add to Cart ♡</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image bunny">🐰</div>
+            <div class="product-info">
+              <h3>Dreamy Bunny</h3>
+              <p>A fluffy bunny for your cozy corner.</p>
+              <span class="weight">2.5 lb / 1.1 kg</span>
+              <span class="price">₹999</span>
+              <a href="#contact" class="btn">Add to Cart ♡</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image penguin">🐧</div>
+            <div class="product-info">
+              <h3>Cozy Penguin</h3>
+              <p>Your little companion for relaxing days.</p>
+              <span class="weight">2.5 lb / 1.1 kg</span>
+              <span class="price">₹1,099</span>
+              <a href="#contact" class="btn">Add to Cart ♡</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image dino">🦕</div>
+            <div class="product-info">
+              <h3>Dino Dreamer</h3>
+              <p>A tiny dino with a whole lot of charm.</p>
+              <span class="weight">2.5 lb / 1.1 kg</span>
+              <span class="price">₹1,099</span>
+              <a href="#contact" class="btn">Add to Cart ♡</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGN UP -->
+    <section class="signup" id="signup">
+      <h2>Join the Coco Bee Family 🐝</h2>
+      <p>Sign up for cozy updates and new plushie announcements.</p>
+      <form onsubmit="event.preventDefault(); alert('Thanks for signing up!'); this.reset();">
+        <label for="signup-name">Name</label>
+        <input type="text" id="signup-name" name="name" placeholder="Your name" autocomplete="name" required>
+
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+
+        <button type="submit" class="btn">Sign Up ♡</button>
+      </form>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta" id="contact">
+      <h2>A calmer you starts here 💛</h2>
+      <p>Find your favorite plushie and make room for more cozy moments.</p>
+      <a href="#products" class="btn">Find Your Cuddle Buddy →</a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="logo">🐝 coco bee</div>
+      <p>Little friends. Cozy moments. Lots of love.</p>
+      <p>© 2026 Coco Bee. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+                                          add sign up

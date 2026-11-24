@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cutie Pets Gallery 🐾</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="paw">🐾</div>
+    <h1>Cutie Pets Gallery</h1>
+    <p>A little world full of fluffy friends and happy faces!</p>
+  </header>
+
+  <nav class="filters" aria-label="Filter pets">
+    <button class="filter-btn active" data-filter="all">All Pets 🐾</button>
+    <button class="filter-btn" data-filter="cat">Kittens 🐱</button>
+    <button class="filter-btn" data-filter="dog">Puppies 🐶</button>
+    <button class="filter-btn" data-filter="small">Tiny Friends 🐰</button>
+    <button class="filter-btn" data-filter="wild">Wild Friends 🐻‍❄️</button>
+  </nav>
+
+  <main>
+    <section id="gallery" class="gallery" aria-label="Pet photo gallery">
+      <!-- Pet cards are added by JavaScript -->
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with 💗 and lots of paws 🐾</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="close-btn" id="closeBtn" aria-label="Close gallery">
+      &times;
+    </button>
+
+    <button class="slide-btn prev-btn" id="prevBtn" aria-label="Previous pet">
+      &#10094;
+    </button>
+
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="">
+      <h2 id="lightboxTitle"></h2>
+      <p id="lightboxDescription"></p>
+      <p id="slideCounter"></p>
+      <button id="playBtn" class="play-btn">▶ Start Slideshow</button>
+    </div>
+
+    <button class="slide-btn next-btn" id="nextBtn" aria-label="Next pet">
+      &#10095;
+    </button>
+  </div>
+</body>
+</html>

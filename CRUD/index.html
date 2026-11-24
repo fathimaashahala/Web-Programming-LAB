@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student CRUD Application</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            margin: 30px;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2457d6;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #2457d6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete {
+            background: red;
+        }
+
+        .edit {
+            background: green;
+            text-decoration: none;
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 25px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #2457d6;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Management System</h1>
+
+    {% if edit_student %}
+        <h2>Update Student</h2>
+
+        <form method="POST"
+              action="/edit/{{ edit_student.id }}">
+
+            <input type="text" name="name"
+                   value="{{ edit_student.name }}" required>
+
+            <input type="email" name="email"
+                   value="{{ edit_student.email }}" required>
+
+            <input type="text" name="course"
+                   value="{{ edit_student.course }}" required>
+
+            <button type="submit">Update Student</button>
+            <a href="/">Cancel</a>
+
+        </form>
+
+    {% else %}
+        <h2>Add Student</h2>
+
+        <form method="POST" action="/">
+
+            <input type="text" name="name"
+                   placeholder="Enter Name" required>
+
+            <input type="email" name="email"
+                   placeholder="Enter Email" required>
+
+            <input type="text" name="course"
+                   placeholder="Enter Course" required>
+
+            <button type="submit">Add Student</button>
+
+        </form>
+    {% endif %}
+
+    <h2>Student Records</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for student in students %}
+
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.course }}</td>
+
+            <td>
+                <a class="edit"
+                   href="/edit/{{ student.id }}">
+                   Edit
+                </a>
+
+                <form method="POST"
+                      action="/delete/{{ student.id }}"
+                      style="display:inline;">
+
+                    <button class="delete"
+                            type="submit">
+                        Delete
+                    </button>
+
+                </form>
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

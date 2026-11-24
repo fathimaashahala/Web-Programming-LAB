@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="registerForm">
+    <input type="text" id="name" placeholder="Enter Name">
+    <p id="nameError" style="color:red"></p>
+
+    <input type="email" id="email" placeholder="Enter Email">
+    <p id="emailError" style="color:red"></p>
+
+    <input type="password" id="password" placeholder="Enter Password">
+    <p id="passwordError" style="color:red"></p>
+
+    <button type="submit">Register</button>
+</form>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value;
+
+    let valid = true;
+
+    document.getElementById("nameError").innerText = "";
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("passwordError").innerText = "";
+
+    if (name === "") {
+        document.getElementById("nameError").innerText = "Name is required";
+        valid = false;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById("emailError").innerText = "Enter a valid email";
+        valid = false;
+    }
+
+    if (password.length < 8) {
+        document.getElementById("passwordError").innerText =
+            "Password must be at least 8 characters";
+        valid = false;
+    }
+
+    if (valid) {
+        alert("Registration successful!");
+    }
+});
+</script>
+
+</body>
+</html>
