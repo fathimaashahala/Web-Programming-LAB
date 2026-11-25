@@ -1,0 +1,150 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #9face6);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.weather-container {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    min-width: 0;
+}
+
+input:focus {
+    border-color: #667eea;
+}
+
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #4c5fd5;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#message {
+    margin-top: 18px;
+    color: #d9534f;
+    font-size: 14px;
+}
+
+.weather-result {
+    margin-top: 25px;
+}
+
+.weather-result[hidden] {
+    display: none;
+}
+
+.weather-result h2 {
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.weather-icon {
+    font-size: 65px;
+    margin: 10px;
+}
+
+#temperature {
+    font-size: 48px;
+    color: #667eea;
+}
+
+#condition {
+    color: #666;
+    margin: 10px 0 25px;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.detail {
+    background: #f1f4ff;
+    padding: 18px;
+    border-radius: 12px;
+    flex: 1;
+}
+
+.detail span {
+    font-size: 25px;
+}
+
+.detail p {
+    color: #777;
+    margin: 8px 0;
+}
+
+.detail h3 {
+    color: #333;
+}
+
+.updated-time {
+    color: #888;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+@media (max-width: 400px) {
+    .weather-container {
+        padding: 20px;
+    }
+
+    button {
+        padding: 12px;
+    }
+}
